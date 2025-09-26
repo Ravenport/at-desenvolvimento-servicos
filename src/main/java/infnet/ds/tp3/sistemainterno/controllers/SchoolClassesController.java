@@ -49,7 +49,7 @@ public class SchoolClassesController {
             schoolClass = result.get();
         }
 
-        List<Student> approvedStudents = schoolClassesService.findAllReproved(schoolClass);
+        List<Student> approvedStudents = schoolClassesService.findAllApproved(schoolClass);
 
         return ResponseEntity.status(HttpStatus.FOUND).body(approvedStudents);
     }
@@ -63,9 +63,9 @@ public class SchoolClassesController {
             schoolClass = result.get();
         }
 
-        List<Student> approvedStudents = schoolClassesService.findAllApproved(schoolClass);
+        List<Student> reprovedStudents = schoolClassesService.findAllReproved(schoolClass);
 
-        return ResponseEntity.status(HttpStatus.FOUND).body(approvedStudents);
+        return ResponseEntity.status(HttpStatus.FOUND).body(reprovedStudents);
     }
 
     @PutMapping("/update/{id}")
