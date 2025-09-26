@@ -26,6 +26,7 @@ public class GradeService {
     }
 
     public Grade createGrade(Grade grade) {
+        grade.setApproved(isApproved(grade));
         gradeRepository.save(grade);
         return grade;
     }
